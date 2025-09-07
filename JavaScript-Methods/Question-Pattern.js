@@ -62,6 +62,16 @@ function isPrime(num) {
 function removeDuplicates(arr) {
     return [...new Set(arr)];
 }
+// another example
+function removeDuplicates(arr) {
+    const unique = [];  
+    for (let item of arr) {
+        if (!unique.includes(item)) {
+            unique.push(item);
+        }   
+    }
+    return unique;
+}
 
 // 5. write a function to flatten a nested array
 function flattenArray(arr) {

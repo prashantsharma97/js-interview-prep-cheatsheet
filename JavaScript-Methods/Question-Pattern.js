@@ -25,6 +25,22 @@ function findPairsWithSum(arr, target) {
 const arr = [2, 4, 3, 5, 7, 8, 9];
 const target = 7;
 console.log(findPairsWithSum(arr, target)); // Output: [ [4, 3], [2, 5] ]
+
+// when o/p whant is assending order
+const arr1 = [2, 4, 3, 5, 7, 8, 9];
+const target1 = 8;
+const seen = new Set();
+
+for(let num of arr1){
+    const total = target1 - num;
+    if(seen.has(total)){
+        const min = Math.min(num,total);
+        const max = Math.max(num,total);
+        console.log(`[${min},${max}]`);
+    }
+    seen.add(num);
+}
+
 // This function finds all unique pairs in an array that sum up to a specific target value.
 
 

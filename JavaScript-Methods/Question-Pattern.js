@@ -76,7 +76,10 @@ function removeDuplicates(arr) {
 // 5. write a function to flatten a nested array
 function flattenArray(arr) {
     return arr.flat(Infinity);
-}   
+}
+// another example
+
+
 // 6. write a function to find the factorial of a number
 function factorial(n) {
     if (n === 0 || n === 1) return 1;

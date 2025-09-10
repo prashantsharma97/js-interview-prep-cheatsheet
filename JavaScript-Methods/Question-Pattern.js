@@ -63,7 +63,7 @@ function removeDuplicates(arr) {
     return [...new Set(arr)];
 }
 // another example
-function removeDuplicates(arr) {
+function removeDuplicat es(arr) {
     const unique = [];  
     for (let item of arr) {
         if (!unique.includes(item)) {
@@ -77,8 +77,18 @@ function removeDuplicates(arr) {
 function flattenArray(arr) {
     return arr.flat(Infinity);
 }
-// another example
-
+// one more another example flatten without using flat method
+const arr = [ 2, 4, [ 5, 7, 2 ], [ 3, 5, 7 ], 8, 9, [ 9, 8, 5 ] ];
+const result = [];
+for(let i=0; i<arr.length; i++){
+    if(Array.isArray(arr[i])){
+        result.push(...arr[i]);
+    }
+    else {
+        result.push(arr[i]);
+    }   
+}
+console.log(result);    
 
 // 6. write a function to find the factorial of a number
 function factorial(n) {
@@ -193,7 +203,7 @@ function countVowels(str) {
 // Capitalize each word in a string
 function capitalizeWords(str) {
     return str
-        .split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .split(' ').map(word => word.charAt(0).toUpperCsase() + word.slice(1))
         .join(' ');
 }
 
@@ -229,3 +239,6 @@ console.log(output);
 const stringName = "hello bhai";
 const capital = stringName.split(' ').map(word => word.charAt(0).toUpperCase()+word.slice(1)).join(' ');
 console.log(capital);
+
+
+

@@ -141,8 +141,3 @@ const findLastIndexExample = arr.slice().reverse().findIndex(x => x % 2 === 0); 
 // 41. with() - Create new array with modified element
 const withExample = arr.with(1, 20); // [1,20,3,4,5]
 
-
-// Note: Some methods like flat(), flatMap(), at(), findLast(), findLastIndex(), and with() may not be supported in older environments.
-// Always check compatibility if targeting older browsers or environments.
-// This cheat sheet covers 35 commonly used JavaScript Array methods with brief examples.
-// For more details, refer to MDN Web Docs or other JavaScript resources.

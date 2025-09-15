@@ -107,6 +107,7 @@ console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5])); // [1, 2, 3, 4, 5]
 function isInteger(num) {
     return Number.isInteger(num);
 }
+
 console.log(isInteger(4)); // true
 console.log(isInteger(4.5)); // false
 
@@ -126,4 +127,24 @@ function duplicateArray(arr) {
 }
 console.log(duplicateArray([1,2,3,4,5])); // [1,2,3,4,5,1,2,3,4,5]
 
+
+// 16. How to check if a string contains only digits
+function containsOnlyDigits(str) {
+    return /^\d+$/.test(str);
+}
+console.log(containsOnlyDigits("12345")); // true
+
+// 17. How to convert a string to title case
+function toTitleCase(str) {
+    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+}       
+
+console.log(toTitleCase("hello world from javascript")); // "Hello World From Javascript"
+
+// 18. How to check if two strings are anagrams 
+function areAnagrams(str1, str2) {
+    const normalize = str => str.replace(/[^A-Za-z0-9]/g, '').toLowerCase().split('').sort().join('');
+    return normalize(str1) === normalize(str2);
+}   
+console.log(areAnagrams("listen", "silent")); // true   
 

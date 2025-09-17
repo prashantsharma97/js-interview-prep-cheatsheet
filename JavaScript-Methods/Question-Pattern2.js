@@ -4,8 +4,8 @@ const data2 = data.split(' ')
     .map((word) => {
         return word.split("").reverse().join('');
     })
-console.log(data2.join(" "));
-
+    .join(' ');
+console.log(data2); // woh era uoy
 // 2. How to check if an object is an array or not provided some code examples
 function isArray(obj) {
     return Array.isArray(obj);

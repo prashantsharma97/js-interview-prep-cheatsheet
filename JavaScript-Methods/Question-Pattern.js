@@ -63,7 +63,7 @@ function removeDuplicates(arr) {
     return [...new Set(arr)];
 }
 // another example
-function removeDuplicat es(arr) {
+function removeDuplicat (arr) {
     const unique = [];  
     for (let item of arr) {
         if (!unique.includes(item)) {

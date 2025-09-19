@@ -148,3 +148,24 @@ function areAnagrams(str1, str2) {
 }   
 console.log(areAnagrams("listen", "silent")); // true   
 
+// 19. How to count the occurrences of each character in a string 
+const arr = [1, 1, 1, 2, 2, 3];
+const k = 2;
+
+const frequencyMap = {};
+
+// Step 1: Calculate frequency of each element
+arr.forEach(num => {
+  frequencyMap[num] = (frequencyMap[num] || 0) + 1;
+});
+
+// Step 2: Convert frequency map into an array of [number, frequency]
+const freqArray = Object.entries(frequencyMap);
+
+// Step 3: Sort by frequency in descending order
+freqArray.sort((a, b) => b[1] - a[1]);
+
+// Step 4: Extract the top k elements
+const result = freqArray.slice(0, k).map(item => Number(item[0]));
+
+console.log(result); // Output: [1, 2]

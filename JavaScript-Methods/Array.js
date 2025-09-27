@@ -4,7 +4,7 @@
  */
 
 // Creating an array
-const arr = [1, 2, 3, 4, 5];
+const arr = [1, 2, 3, 4, 5, 6];
 
 // 1. push() - Add element(s) to end
 arr.push(6); // [1,2,3,4,5,6]

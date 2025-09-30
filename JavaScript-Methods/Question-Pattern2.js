@@ -26,7 +26,7 @@ arr.splice(0, arr.length);
 console.log(arr); // []
 
 // Method 3: Using while loop with pop (not recommended for large arrays)
-arr = [1, 2, 3, 4, 5];  
+arr = [1, 2, 3, 4, 5];
 while (arr.length) {
     arr.pop();
 }
@@ -69,27 +69,27 @@ console.log(average); // 3
 const arr11 = [1, 2, 3, 4, 5, 6];
 const target1 = 7;
 const seen = new Set();
-for(let num of arr11){
-    const total = target1 - num;    
-    if(seen.has(total)){
-        const min = Math.min(num,total);
-        const max = Math.max(num,total);
+for (let num of arr11) {
+    const total = target1 - num;
+    if (seen.has(total)) {
+        const min = Math.min(num, total);
+        const max = Math.max(num, total);
         console.log(`[${min},${max}]`);
-    }   
+    }
     seen.add(num);
 }
 
 // 11. Write a function to reverse a string
 function reverseString(str) {
     return str.split('').reverse().join('');
-}   
+}
 
 // 12. Write a function to check if a number is prime
 function isPrime(num) {
-    if (num <= 1) return false; 
+    if (num <= 1) return false;
     for (let i = 2; i <= Math.sqrt(num); i++) {
         if (num % i === 0) return false;
-    }   
+    }
     return true;
 }
 console.log(isPrime(11)); // true
@@ -98,7 +98,7 @@ console.log(isPrime(4)); // false
 // 13. Write a function to remove duplicates from an array
 function removeDuplicates(arr) {
     return [...new Set(arr)];
-}   
+}
 
 console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5])); // [1, 2, 3, 4, 5]
 
@@ -114,18 +114,18 @@ console.log(isInteger(4.5)); // false
 // Method 2: Using modulo operator
 function isIntegerMod(num) {
     // return num % 1 === 0;
-    if(num % 1 === 0){
-       console.log(`${num} is integer`);
-    }else{
-       console.log(`${num} is not integer`);
-    }   
+    if (num % 1 === 0) {
+        console.log(`${num} is integer`);
+    } else {
+        console.log(`${num} is not integer`);
+    }
 }
 
 // 15. Make this work ([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
 function duplicateArray(arr) {
     return arr.concat(arr);
 }
-console.log(duplicateArray([1,2,3,4,5])); // [1,2,3,4,5,1,2,3,4,5]
+console.log(duplicateArray([1, 2, 3, 4, 5])); // [1,2,3,4,5,1,2,3,4,5]
 
 
 // 16. How to check if a string contains only digits
@@ -137,7 +137,7 @@ console.log(containsOnlyDigits("12345")); // true
 // 17. How to convert a string to title case
 function toTitleCase(str) {
     return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
-}       
+}
 
 console.log(toTitleCase("hello world from javascript")); // "Hello World From Javascript"
 
@@ -145,7 +145,7 @@ console.log(toTitleCase("hello world from javascript")); // "Hello World From Ja
 function areAnagrams(str1, str2) {
     const normalize = str => str.replace(/[^A-Za-z0-9]/g, '').toLowerCase().split('').sort().join('');
     return normalize(str1) === normalize(str2);
-}   
+}
 console.log(areAnagrams("listen", "silent")); // true   
 
 // 19. How to count the occurrences of each character in a string 
@@ -156,7 +156,7 @@ const frequencyMap = {};
 
 // Step 1: Calculate frequency of each element
 arr.forEach(num => {
-  frequencyMap[num] = (frequencyMap[num] || 0) + 1;
+    frequencyMap[num] = (frequencyMap[num] || 0) + 1;
 });
 
 // Step 2: Convert frequency map into an array of [number, frequency]
@@ -169,3 +169,32 @@ freqArray.sort((a, b) => b[1] - a[1]);
 const result = freqArray.slice(0, k).map(item => Number(item[0]));
 
 console.log(result); // Output: [1, 2]
+
+// 20. Rotate an array to the right by k steps, where k is non-negative.
+function rotateArray(arr, k) {
+    const n = arr.length;
+    k = k % n; // In case k is greater than array length
+    const part1 = arr.slice(-k); // Last k elements
+    const part2 = arr.slice(0, n - k);
+
+    return part1.concat(part2);
+    //return arr.slice(-k).concat(arr.slice(0, n - k));
+}
+console.log(rotateArray([1, 2, 3, 4, 5], 2)); // [4, 5, 1, 2, 3]
+
+// 21. Generate the first n numbers of the Fibonacci sequence.
+function generateFibonacci(n) {
+    const fib = [];
+    for (let i=0; i<n; i++){
+        if(i===0){
+            fib.push(0);
+        } else if (i===1){
+            fib.push(1);
+        } else{
+            fib.push(fib[i-1]+fib[i-2]);
+        }
+    }
+    return fib;
+}
+
+console.log(generateFibonacci(10)); // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]

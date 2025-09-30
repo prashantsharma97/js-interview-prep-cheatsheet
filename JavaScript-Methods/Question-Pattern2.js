@@ -185,16 +185,31 @@ console.log(rotateArray([1, 2, 3, 4, 5], 2)); // [4, 5, 1, 2, 3]
 // 21. Generate the first n numbers of the Fibonacci sequence.
 function generateFibonacci(n) {
     const fib = [];
-    for (let i=0; i<n; i++){
-        if(i===0){
+    for (let i = 0; i < n; i++) {
+        if (i === 0) {
             fib.push(0);
-        } else if (i===1){
+        } else if (i === 1) {
             fib.push(1);
-        } else{
-            fib.push(fib[i-1]+fib[i-2]);
+        } else {
+            fib.push(fib[i - 1] + fib[i - 2]);
         }
     }
     return fib;
 }
 
 console.log(generateFibonacci(10)); // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+
+// 22. Check if two strings are anagrams of each other.  
+function areAnagrams(str1, str2) {
+    str1 = str1.replace(/\s/g, '').toLowerCase();
+    str2 = str2.replace(/\s/g, '').toLowerCase();
+    if (str1.length !== str2.length) {
+        return false;
+    }
+    const shortest = str1.split('').sort().join('');
+    const longest = str2.split('').sort().join('');
+    return shortest === longest;
+}
+
+console.log(areAnagrams("listen", "silent")); // true
+console.log(areAnagrams("hello", "world")); // false

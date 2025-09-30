@@ -203,6 +203,7 @@ console.log(generateFibonacci(10)); // [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 function areAnagrams(str1, str2) {
     str1 = str1.replace(/\s/g, '').toLowerCase();
     str2 = str2.replace(/\s/g, '').toLowerCase();
+    // check length firstx
     if (str1.length !== str2.length) {
         return false;
     }
@@ -213,3 +214,76 @@ function areAnagrams(str1, str2) {
 
 console.log(areAnagrams("listen", "silent")); // true
 console.log(areAnagrams("hello", "world")); // false
+
+
+// 23. OOP – Vehicle, Car, Truck (Inheritance) Create a base class Vehicle, and 
+// extend it with Car and Truck, adding unique properties and methods.
+
+class Vehicle {
+    constructor(make, model, year) {
+      this.make = make;
+      this.model = model;
+      this.year = year;
+    }
+
+    startEngine() {
+      console.log(`${this.make} ${this.model} engine started.`);
+    }
+
+    displayInfo() {
+      console.log(`Vehicle: ${this.make} ${this.model}, Year: ${this.year}`);
+    }
+  }
+
+  // Car Class - Inherits from Vehicle
+  class Car extends Vehicle {
+    constructor(make, model, year, numberOfDoors) {
+      super(make, model, year);
+      this.numberOfDoors = numberOfDoors;
+    }
+
+    openTrunk() {
+      console.log(`Opening the trunk of ${this.make} ${this.model}.`);
+    }
+
+    displayInfo() {
+      super.displayInfo();
+      console.log(`Car Type with ${this.numberOfDoors} doors.`);
+    }
+  }
+
+  // Truck Class - Inherits from Vehicle
+  class Truck extends Vehicle {
+    constructor(make, model, year, payloadCapacity) {
+      super(make, model, year);
+      this.payloadCapacity = payloadCapacity;
+    }
+
+    loadCargo(weight) {
+      if (weight <= this.payloadCapacity) {
+        console.log(`Loaded ${weight}kg into the truck.`);
+      } else {
+        console.log(`Cannot load ${weight}kg. Max capacity is ${this.payloadCapacity}kg.`);
+      }
+    }
+
+    displayInfo() {
+      super.displayInfo();
+      console.log(`Truck with payload capacity: ${this.payloadCapacity} kg`);
+    }
+  }
+
+  // Test the Classes
+
+  console.log("=== Car Object ===");
+  const myCar = new Car("Toyota", "Corolla", 2020, 4);
+  myCar.startEngine();
+  myCar.openTrunk();
+  myCar.displayInfo();
+
+  console.log("=== Truck Object ===");
+  const myTruck = new Truck("Ford", "F-150", 2019, 1500);
+  myTruck.startEngine();
+  myTruck.loadCargo(1000);
+  myTruck.displayInfo();
+

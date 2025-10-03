@@ -183,6 +183,9 @@ function rotateArray(arr, k) {
 console.log(rotateArray([1, 2, 3, 4, 5], 2)); // [4, 5, 1, 2, 3]
 
 // 21. Generate the first n numbers of the Fibonacci sequence.
+// Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ... it's a series of 
+// numbers where each number is the sum of the two preceding ones.
+
 function generateFibonacci(n) {
     const fib = [];
     for (let i = 0; i < n; i++) {
@@ -287,3 +290,15 @@ class Vehicle {
   myTruck.loadCargo(1000);
   myTruck.displayInfo();
 
+// 24. what is Recursion with example 
+// Recursion is a programming technique where a function calls itself.
+
+function factorial(n) {
+    if (n === 0 || n === 1) {
+        return 1; // Base case
+    }
+    return n * factorial(n - 1); // Recursive case
+}
+console.log(factorial(5)); // Output: 120 (5 * 4 * 3 * 2 * 1)
+
+// 

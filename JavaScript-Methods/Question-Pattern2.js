@@ -78,11 +78,13 @@ for (let num of arr11) {
     }
     seen.add(num);
 }
+// Output: [1,6] [2,5] [3,4]
 
 // 11. Write a function to reverse a string
 function reverseString(str) {
     return str.split('').reverse().join('');
 }
+console.log(reverseString("hello")); // Output: "olleh"
 
 // 12. Write a function to check if a number is prime
 function isPrime(num) {
@@ -91,7 +93,7 @@ function isPrime(num) {
         if (num % i === 0) return false;
     }
     return true;
-}
+}   
 console.log(isPrime(11)); // true
 console.log(isPrime(4)); // false   
 
@@ -99,7 +101,6 @@ console.log(isPrime(4)); // false
 function removeDuplicates(arr) {
     return [...new Set(arr)];
 }
-
 console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5])); // [1, 2, 3, 4, 5]
 
 // 14. How would you check if number is integer.
@@ -107,7 +108,6 @@ console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5])); // [1, 2, 3, 4, 5]
 function isInteger(num) {
     return Number.isInteger(num);
 }
-
 console.log(isInteger(4)); // true
 console.log(isInteger(4.5)); // false
 
@@ -120,6 +120,8 @@ function isIntegerMod(num) {
         console.log(`${num} is not integer`);
     }
 }
+isIntegerMod(5); // 5 is integer
+isIntegerMod(5.3); // 5.3 is not integer
 
 // 15. Make this work ([1,2,3,4,5]); // [1,2,3,4,5,1,2,3,4,5]
 function duplicateArray(arr) {
@@ -138,7 +140,6 @@ console.log(containsOnlyDigits("12345")); // true
 function toTitleCase(str) {
     return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
 }
-
 console.log(toTitleCase("hello world from javascript")); // "Hello World From Javascript"
 
 // 18. How to check if two strings are anagrams 
@@ -148,19 +149,20 @@ function areAnagrams(str1, str2) {
 }
 console.log(areAnagrams("listen", "silent")); // true   
 
-// 19. How to count the occurrences of each character in a string 
+// 19. How to count the occurrences of each character in a string frequency.
 const arr = [1, 1, 1, 2, 2, 3];
 const k = 2;
 
-const frequencyMap = {};
+const freq = {};
 
 // Step 1: Calculate frequency of each element
 arr.forEach(num => {
-    frequencyMap[num] = (frequencyMap[num] || 0) + 1;
+    freq[num] = (freq[num] || 0) + 1;
 });
+console.log(freq); // { '1': 3, '2': 2, '3': 1 }
 
 // Step 2: Convert frequency map into an array of [number, frequency]
-const freqArray = Object.entries(frequencyMap);
+const freqArray = Object.entries(freq);
 
 // Step 3: Sort by frequency in descending order
 freqArray.sort((a, b) => b[1] - a[1]);
@@ -301,4 +303,75 @@ function factorial(n) {
 }
 console.log(factorial(5)); // Output: 120 (5 * 4 * 3 * 2 * 1)
 
-// 
+
+let a1=a2=[1,2,3];
+a1.length(2); // get a TypeError: a1.length is not a function, if we use a1.length=2; it will work
+console.log(a1,a2); // then o/p will be [1,2] [1,2]
+
+let a=b=[1,2,3];
+a.push(4);
+console.log(a,b); // [1,2,3,4] [1,2,3,4]
+
+// 25. Find dublicates in an array of integers (with inbuilt methods)
+const array = [1, 2, 3, 4, 5, 1, 2, 3];
+const duplicates = array.filter((item, index) => array.indexOf(item) !== index);
+const uniqueDuplicates = [...new Set(duplicates)];
+console.log(uniqueDuplicates); // [1, 2, 3]
+
+//26. Find largest elment in an array of integers (without inbuilt methods)
+function findLargest(arr) {
+    let largest = arr[0];   
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] > largest) {
+            largest = arr[i];
+        }
+    }
+    return largest;
+}
+console.log(findLargest([3, 5, 7, 2, 8])); // 8
+
+// 27. Find second largest elment in an array of integers (without inbuilt methods)
+function findSecondLargest(arr) {
+    let largest = -Infinity;
+    let secondLargest = -Infinity;
+    for (let num of arr) {
+        if (num > largest) {
+            secondLargest = largest;
+            largest = num;
+        } else if (num > secondLargest && num !== largest) {
+            secondLargest = num;
+        }
+    }   
+    return secondLargest;
+}   
+console.log(findSecondLargest([3, 5, 7, 2, 8])); // 7
+        
+// 28. Find the missing number in an array of integers (without inbuilt methods)
+function findMissingNumber(arr, n) {
+    const expectedSum = (n * (n + 1)) / 2;
+    const actualSum = arr.reduce((acc, val) => acc + val, 0);
+    return expectedSum - actualSum;
+}
+console.log(findMissingNumber([1, 2, 4, 5], 5)); // 3
+
+// 29. write a function to count the occurrences of each character in a string
+function charCount(str) {
+    const freq = {};       
+    for (let char of str) {
+        if (char !== ' ') {
+            freq[char] = (freq[char] || 0) + 1;
+    }               
+    }
+    return freq;
+}   
+console.log(charCount("hello world")); // { h: 1, e: 1, l: 3, o: 2, w: 1, r: 1, d: 1 }
+
+// 30. write a function to count occurence of each number in an array
+function countOccurrences(arr) {
+    const freq = {};
+    for (let num of arr) {
+        freq[num] = (freq[num] || 0) + 1;
+    }
+    return freq;
+}
+console.log(countOccurrences([1, 2, 2, 3, 4, 4, 5])); // { '1': 1, '2': 2, '3': 1, '4': 2, '5': 1 }

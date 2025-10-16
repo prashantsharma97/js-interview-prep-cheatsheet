@@ -14,6 +14,8 @@ const c = 3; // block-scoped, cannot be updated or redeclared
 // Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope.
 
 // 4. What are closures?
+// A closure is a function that remembers its outer variables and can access them.
+// Example:
 function outer() {
     let count = 0;
     return function inner() {
@@ -27,12 +29,16 @@ const counter = outer(); // counter() returns incremented count
 // == compares values after type coercion, === compares both value and type.
 
 // 6. What is a callback function?
+// A callback function is a function passed into another function as an argument to be executed later.
+// Example:
 function greet(name, callback) {
     callback(`Hello, ${name}`);
 }
 greet('Alice', msg => console.log(msg));
 
 // 7. What is an arrow function?
+// Arrow functions provide a shorter syntax and do not have their own 'this'.
+// Example:
 const sum = (a, b) => a + b;
 
 // 8. What is the 'this' keyword?
@@ -65,6 +71,13 @@ async function fetchData() {
 // The spread operator (...) allows an iterable to expand in places where multiple elements/arguments are expected.
 const arr1 = [1, 2];
 const arr2 = [...arr1, 3, 4]; // [1,2,3,4]
+
+// . what is Rest operator?
+// The rest operator (...) collects multiple elements into an array.
+function sumAll(...numbers) {
+    return numbers.reduce((acc, num) => acc + num, 0);
+}
+sumAll(1, 2, 3); // 6
 
 // 14. What is destructuring?
 // Destructuring allows unpacking values from arrays or properties from objects into distinct variables.

@@ -241,8 +241,6 @@ const output = capitalizeWords(input);
 console.log(output); // "Hello My Name Is Prashant"
 
 
-
-
 function cap (str){
     return str.split('').map(word => word.charAt(0).toUpperCase() + word.slice(1))
 .join('');

@@ -377,6 +377,7 @@ function countOccurrences(arr) {
 console.log(countOccurrences([1, 2, 2, 3, 4, 4, 5])); // { '1': 1, '2': 2, '3': 1, '4': 2, '5': 1 }
 
 // 31. Function to check if two strings differ by exactly one character 
+// For example, "apple" and "apqle" differ by one character 'p' and 'q'.
 function isOneMismatch(a, b) {
   if (a.length !== b.length) return false;
   let mismatch = 0;

@@ -375,3 +375,56 @@ function countOccurrences(arr) {
     return freq;
 }
 console.log(countOccurrences([1, 2, 2, 3, 4, 4, 5])); // { '1': 1, '2': 2, '3': 1, '4': 2, '5': 1 }
+
+// 31. Function to check if two strings differ by exactly one character 
+function isOneMismatch(a, b) {
+  if (a.length !== b.length) return false;
+  let mismatch = 0;
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] !== b[i]) mismatch++;
+    if (mismatch > 1) return false;
+  }
+  return mismatch === 1;
+}
+
+function findAllOneMismatch(str, words) {
+  const matches = [];
+  for (let word of words) {
+    if (isOneMismatch(str, word)) {
+      matches.push(word); // Collect all words that differ by exactly one character
+    }
+  }
+  if (matches.length === 0) {
+    return "No one-mismatch word found";
+  }
+  return matches;
+}
+
+
+const str = "apple";
+const arr = ["apple", "apqle", "appls"];
+console.log(findAllOneMismatch(str,arr));
+// Output: ["apqle", "appls"]
+
+// If no one-mismatch word found
+const str2 = "banana";
+const arr3 = ["banana", "banena", "bananb", "banan"];
+console.log(findAllOneMismatch(str2,arr3));
+// Output: ["banena", "bananb"]
+
+// 32. Function to find the first non-repeating character in a string
+function firstNonRepeatingChar(str) {
+    const charCount = {};   
+    for (let char of str) {
+        charCount[char] = (charCount[char] || 0) + 1;
+    }
+    for (let char of str) {
+        if (charCount[char] === 1) {
+            return char;
+        }
+    }
+    return null; // If all characters are repeating
+}
+console.log(firstNonRepeatingChar("swiss")); // Output: "w"
+console.log(firstNonRepeatingChar("aabbcc")); // Output: null
+

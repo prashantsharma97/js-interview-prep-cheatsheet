@@ -429,3 +429,60 @@ function firstNonRepeatingChar(str) {
 console.log(firstNonRepeatingChar("swiss")); // Output: "w"
 console.log(firstNonRepeatingChar("aabbcc")); // Output: null
 
+// 32. write a function to find the most frequent number in an array and with largest frequency value.
+
+let arr = [7, 5, 4, 8, 3, 2, 4, 7, 2];
+
+let faq = {};
+
+// 🔹 Step 1: Frequency count
+for (let num of arr) {
+    if (faq[num]) {
+        faq[num] ++;
+    } else {
+        faq[num] = 1;
+    }
+}
+
+// 🔹 Step 2: Find the maximum frequency value
+const maxx = Math.max(...Object.values(faq));
+
+// 🔹 Step 3: Find which key(s) have that max frequency
+const mostFrequent = Object.keys(faq).filter(num => faq[num] === maxx);
+
+console.log("Frequencies:", faq); // { '2': 2, '3': 1, '4': 2, '5': 1, '7': 2, '8': 1 }
+console.log("Max frequency value:", maxx); // 2
+console.log("Number(s) with max frequency:", mostFrequent); // [ '2', '4', '7' ]
+
+
+// 33. Flatten a nested array of integers (without using recursion or inbuilt flat method)
+
+let arr = [ [1,2], [3,4,5,[0,9,11,[1,5,4]]], [1,2,2], [4], 8,7 ];
+let sol = [];
+
+for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+        // arr.push(...arr[i]); // ye infinite loop me chala jayega
+        arr.splice(i, 1, ...arr[i]);
+        i--; // imp: naye elements ko bhi check karega
+    } else {
+        sol.push(arr[i]);
+    }
+}
+
+console.log(sol); // [1,2,3,4,5,0,9,11,1,5,4,1,2,2,4,8,7]
+
+// 34. flatten a array of integers (using recursion)
+function flattenArray(arr) {
+    let result = [];    
+    for (let item of arr) {
+        if (Array.isArray(item)) {
+            result = result.concat(flattenArray(item));
+        } else {
+            result.push(item);
+        }   
+    }
+    return result;
+}
+console.log(flattenArray([ [1,2], [3,4,5,[0,9,11,[1,5,4]]], [1,2,2], [4], 8,7 ]));
+// Output: [1,2,3,4,5,0,9,11,1,5,4,1,2,2,4,8,7]

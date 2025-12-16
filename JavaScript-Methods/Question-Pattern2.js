@@ -443,6 +443,7 @@ for (let num of arr) {
         faq[num] = 1;
     }
 }
+console.log(faq); // { '2': 2, '3': 1, '4': 2, '5': 1, '7': 2, '8': 1 }
 
 // 🔹 Step 2: Find the maximum frequency value
 const maxx = Math.max(...Object.values(faq));
@@ -452,7 +453,21 @@ const mostFrequent = Object.keys(faq).filter(num => faq[num] === maxx);
 
 console.log("Frequencies:", faq); // { '2': 2, '3': 1, '4': 2, '5': 1, '7': 2, '8': 1 }
 console.log("Max frequency value:", maxx); // 2
-console.log("Number(s) with max frequency:", mostFrequent); // [ '2', '4', '7' ]
+console.log("Number(s) with max frequency:", mostFrequent); // [ '2', '4', '7' ]'
+
+// 🔹 Step 2: Find the maximum frequency value
+let maxNum = null;
+let maxFreq = 0;
+
+for (let num in faq) {
+    if (faq[num] > maxFreq) {
+        maxFreq = faq[num];  // Update max frequency
+        maxNum = num;        // Update the number with max frequency
+    }
+}
+
+console.log("Frequencies:", faq); // { '2': 2, '3': 1, '4': 2, '5': 1, '7': 2, '8': 1 }
+console.log(`Most frequent number: ${maxNum} with frequency: ${maxFreq}`);
 
 
 // 33. Flatten a nested array of integers (without using recursion or inbuilt flat method)
@@ -486,3 +501,49 @@ function flattenArray(arr) {
 }
 console.log(flattenArray([ [1,2], [3,4,5,[0,9,11,[1,5,4]]], [1,2,2], [4], 8,7 ]));
 // Output: [1,2,3,4,5,0,9,11,1,5,4,1,2,2,4,8,7]
+
+// 35. Find the sum of all numbers in an array, ignoring non-numeric values.
+
+const arr35 = [1, 2, 3, 4, 5,"b",1,"e"];
+const sum35 = arr35.reduce((a, b) => {
+    if(typeof b === "number"){
+        return a+b;
+    }
+    return a;
+},0);
+console.log(sum35); // Output: 15
+
+// 36. What will be the output of the following code snippet? they are asking about the length property of array
+
+const arr = [1, 2, 3];
+arr[9] = 10;
+
+console.log(arr);  // Output: [ 1, 2, 3, <6 empty items>, 10 ]
+console.log(arr.length);
+
+// 37. Find the sum of all elements in an array using reduce method.
+
+const arr = [1,2,3,4,5];
+const sum = arr.reduce((a,b)=>a+b);
+console.log(sum); // Output: 15
+
+// 38. how to get object length?
+
+const obj = { a: 1, b: 2, c: 3 };
+
+console.log(Object.keys(obj).length); // Output: 3
+
+// find frequency -- done =>
+// second largest element in array -- done =>
+// remove multiple element in array without method -- done =>
+// flatten array -- done =>
+// find value in array sum of pair = target 9 -- done =>
+// lowest element in array -- done =>
+// largest element in array -- done =>
+// shellow copy -- done =>
+// deep copy -- done =>
+// reverse string -- done  =>
+// bubble sort -- done 
+// roted arry -- done
+// sum of all element in array -- done =>
+

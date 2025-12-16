@@ -40,6 +40,7 @@ for(let num of arr1){
     }
     seen.add(num);
 }
+console.log(seen); // Output: [ [3, 5], [2, 6] ]
 
 // This function finds all unique pairs in an array that sum up to a specific target value.
 

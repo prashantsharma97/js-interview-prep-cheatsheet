@@ -56,9 +56,9 @@ const mergedArray = arr1.concat(arr2);
 console.log(mergedArray); // [1, 2, 3, 4, 5, 6]     
 
 // 8. How to find the sum of all elements in an array
-const arr3 = [1, 2, 3, 4, 5];
-const sum = arr3.reduce((acc, val) => acc + val, 0);
-console.log(sum); // 15 
+const arr33 = [1, 2, 3, 4, 5];
+const summ = arr33.reduce((acc, val) => acc + val, 0);
+console.log(summ); // 15 
 
 // 9. How to find the average of all elements in an array
 const arr4 = [1, 2, 3, 4, 5];
@@ -532,6 +532,37 @@ console.log(sum); // Output: 15
 const obj = { a: 1, b: 2, c: 3 };
 
 console.log(Object.keys(obj).length); // Output: 3
+
+// 39. write a function to get prime numbers in between 1 to 50 range.
+function getPrimesInRange(start, end) {
+    const primes = [];  
+    for (let num = start; num <= end; num++) {
+        if (isPrime(num)) {
+            primes.push(num);
+        }
+    }
+    return primes;
+}   
+function isPrime(num) {
+    if (num <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) return false;
+    }
+    return true;
+}
+console.log(getPrimesInRange(1, 50)); 
+// Output: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47] 
+
+// 40. What will be the output of the following code snippet and why?
+
+function fetch(){
+    A = 10;
+}
+let A;
+fetch();
+console.log(A); // Output: 10 
+// why because A is declared in global scope and in fetch function we are assigning value to A without using let or const keyword so it will take A from global scope and assign value 10 to it.
+
 
 // find frequency -- done =>
 // second largest element in array -- done =>

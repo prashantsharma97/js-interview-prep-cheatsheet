@@ -22,9 +22,9 @@ function findPairsWithSum(arr, target) {
 }
 
 // Example usage:
-const arr = [2, 4, 3, 5, 7, 8, 9];
+const arrr = [2, 4, 3, 5, 7, 8, 9];
 const target = 7;
-console.log(findPairsWithSum(arr, target)); // Output: [ [4, 3], [2, 5] ]
+console.log(findPairsWithSum(arrr, target)); // Output: [ [4, 3], [2, 5] ]
 
 // when o/p whant is assending order
 const arr1 = [2, 4, 3, 5, 7, 8, 9];
@@ -230,44 +230,21 @@ function countVowels(str) {
 console.log(countVowels("hello world")); // Output: 3
 
 
-// Capitalize each word in a string
+// 22. Capitalize each word in a string
 function capitalizeWords(str) {
     return str
         .split(' ').map(word => word.charAt(0).toUpperCsase() + word.slice(1))
         .join(' ');
 }
-
 const input = "hello my name is prashant";
 const output = capitalizeWords(input);
 console.log(output); // "Hello My Name Is Prashant"
 
 
-function cap (str){
-    return str.split('').map(word => word.charAt(0).toUpperCase() + word.slice(1))
-.join('');
+// 23. Find the missing number in an array of 1 to n
+function findMissingNumber(arr, n) {
+    const expectedSum = (n * (n + 1)) / 2;
+    const actualSum = arr.reduce((acc, num) => acc + num, 0);
+    return expectedSum - actualSum;
 }
-
-let input = "hello my name is prashant";
-const output = cap(input);
-console.log(output);
-
-
-
-function cap (str){
-    return str
-       .split('').map(word => word.charAt(0).toUpperCase() + word.slice(1))
-       .join('');
-}
-const input = "hello my name is prashant";
-const output = cap(input);
-console.log(output);
-
-
-
-const stringName = "hello bhai";
-const capital = stringName.split(' ')
-.map(word => word.charAt(0).toUpperCase()+word.slice(1)).join(' ');
-console.log(capital);
-
-
-
+console.log(findMissingNumber([1, 2, 4, 5], 5)); // Output: 3

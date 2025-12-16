@@ -47,9 +47,9 @@
 
 // 9. What is Normalization?
 
-// A process of organizing data to reduce redundancy and improve consistency.
-
-// Common forms: 1NF, 2NF, 3NF, BCNF
+// Normalization is code optimization technique for organizing the data in the database.
+// A process of organizing data to reduce redundancy and improve consistency of data.
+// Common forms: 1NF, 2NF, 3NF, BCNF 
 
 // 10. What is Denormalization?
 

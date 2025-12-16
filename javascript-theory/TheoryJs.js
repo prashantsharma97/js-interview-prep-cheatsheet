@@ -254,8 +254,8 @@ const sym = Symbol('desc'); // unique and immutable identifier
 // Optional chaining (?.) it is allows us to safely access deeply nested, 
 // properties of an object without throwing errors if a property doesn't exist. It returns undefined instead of crashing.
 // Example:
-const obj = { prop: { subProp: 42 } };
-const val = obj?.prop?.subProp;
+const objj = { prop: { subProp: 42 } };
+const val = objj?.prop?.subProp;
 
 // 37. What is nullish coalescing?
 // Nullish coalescing (??) is an operator that returns the right-hand value only if the left-hand value is null or undefined.
@@ -396,6 +396,6 @@ console.log(applyOperation(2, 3, (x, y) => x + y)); // 5
 // 57. What is a template literal?
 // Theory: Template literals allow embedded expressions and multi-line strings using backticks (`).
 // Example:
-const user = 'Jane';
-console.log(`Hello, ${user}!`);
+const userr = 'Jane';
+console.log(`Hello, ${userr}!`);
 

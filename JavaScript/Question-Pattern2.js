@@ -564,6 +564,47 @@ console.log(A); // Output: 10
 // why because A is declared in global scope and in fetch function we are assigning value to A without using let or const keyword so it will take A from global scope and assign value 10 to it.
 
 
+// 41. What will be the output of the following code snippet and why?
+
+for(var i=0;i<3;i++){
+    setTimeout(function(){
+        console.log(i);
+    },1000);
+}
+// Output: 3 3 3
+// why because var is function scoped so by the time setTimeout callback executes the loop has already completed and i is 3.
+
+// 42. What will be the output of the following code snippet and why?
+
+for(let i=0;i<3;i++){
+    setTimeout(function(){
+        console.log(i);
+    },1000);    
+}
+// Output: 0 1 2
+// why because let is block scoped so each iteration of the loop has its own copy of i. 
+
+
+// 43. What will be the output of the following code snippet and why?
+
+console.log(1 + "2" + "2"); // 122  
+console.log(1 + +"2" + "2"); // 32
+console.log(1 + -"1" + "2"); // 02
+console.log(+"1" + "1" + "2"); // 112
+console.log("A" - "B" + "2");  // NaN2
+console.log("A" - "B" + 2);    // NaN
+// Explanation:
+// In the first expression, "2" and "2" are strings, so they are concatenated with 1.
+// In the second expression, +"2" converts the string "2" to a number, so it's 1 + 2 + "2" = 3 + "2" = "32".
+// In the third expression, -"1" converts the string "1" to a number and negates it, so it's 1 - 1 + "2" = 0 + "2" = "02".
+// In the fourth expression, +"1" converts the string "1" to a number, so it's 1 + "1" + "2" = "11" + "2" = "112".
+// In the fifth expression, "A" - "B" results in NaN because you cannot subtract strings, and NaN + "2" results in "NaN2".
+// In the sixth expression, "A" - "B" results in NaN, and NaN + 2 results in NaN.
+
+
+
+
+
 // find frequency -- done =>
 // second largest element in array -- done =>
 // remove multiple element in array without method -- done =>
